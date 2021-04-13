@@ -1,0 +1,46 @@
+#include<stdio.h>
+int main()
+{
+int x,k,dc,d,num,j,result,base,exp;
+printf("Enter a number :");
+scanf("%d",&x);
+fflush(stdin);
+if(x<0)
+{
+printf("%d not an armstrong number\n",x);
+return 0;
+}
+num=x;
+dc=1;
+while(num>9)
+{
+dc++;
+num=num/10;
+}
+num=x;
+k=0;
+exp=dc;
+while(num>0)
+{
+d=(num%10);
+base=d;
+j=1;
+result=1;
+while(j<=exp)
+{
+result=result*base;
+j++;
+}
+k=k+result;
+num=num/10;
+}
+if(k==x)
+{
+printf("%d is a armstrong number\n",x);
+}
+else
+{
+printf("%d not a armstrong number\n",x);
+}
+return 0;
+}
