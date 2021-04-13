@@ -1,0 +1,35 @@
+#include<string.h>
+#include<stdio.h>
+int WordCount(char *p)
+{
+char *m;
+int count=0;
+m=p;
+while(*m==' ') m++;
+while(*m)
+{
+if(*m==' ') 
+{
+count++;
+while(*m==' ') m++;
+}
+else m++;
+}
+if(m>p)
+{
+ if(*(m-1)==' ') count--;
+}
+count++;
+return count;
+}
+int main()
+{
+char a[44];
+printf("Enter a string :");
+fgets(a,44,stdin);
+fflush(stdin);
+a[strlen(a)-1]='\0';
+int x=WordCount(a);
+printf("word in %s :%d\n",a,x);
+return 0;
+}
