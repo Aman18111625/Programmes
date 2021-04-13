@@ -1,0 +1,61 @@
+#include<string.h>
+#include<stdio.h>
+void addFriend()
+{
+char name[22],contactnumber[52];
+FILE *f;
+printf("Enter Name : ");
+fgets(name,22,stdin);
+fflush(stdin);
+name[strlen(name)-1]='\0';
+printf("Enter contact number : ");
+fgets(contactnumber,52,stdin);
+fflush(stdin);
+contactnumber[strlen(contactnumber)-1]='\0';
+f=fopen("frnds.fff","a");
+fputs(name,f);
+fputc('\n',f);
+fputs(contactnumber,f);
+fputc('\n',f);
+fclose(f);
+printf("Friends Added\n");
+}
+void displayListofFriend()
+{
+FILE *k;
+char nm[22],cn[52];
+k=fopen("frnds.fff","r");
+if(k==NULL) 
+{
+printf("NO Friend Added\n");
+return ;
+}
+while(1)
+{
+fgets(nm,22,k);
+if(feof(k)) break;
+nm[strlen(nm)-1]='\0';
+fgets(cn,52,k);
+cn[strlen(cn)-1]='\0';
+printf("Name : %s ,Contact-Number : %s\n",nm,cn);
+}
+fclose(k);
+}
+int main()
+{
+int ch;
+while(1)
+{
+printf("1.Add Friend\n");
+printf("2.Display List of Student\n");
+printf("3.Exit\n");
+printf("Enter your choice: ");
+scanf("%d",&ch);
+fflush(stdin);
+
+if(ch==1) addFriend();
+if(ch==2) displayListofFriend();
+if(ch==3) break;
+}
+return 0;
+}

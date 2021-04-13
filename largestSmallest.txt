@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+int n,largest,smallest;
+printf("Enter the size of an array:");
+scanf("%d",&n);
+int a[n];
+for(int i=0;i<n;i++)
+{
+printf("Enter a number:");
+scanf("%d",&a[i]);
+}
+largest=smallest=a[0];
+for(int i=1;i<n;i++)
+{
+if(a[i]>largest) largest=a[i];
+if(a[i]<smallest) smallest=a[i];
+}
+printf("Lagest:%d\n Smallest:%d\n",largest,smallest);
+return 0;
+}

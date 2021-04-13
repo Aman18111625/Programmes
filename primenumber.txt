@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+int n,ep,z,y;
+printf("Enter a number:");
+scanf("%d",&n);
+if(n<2)
+{
+printf("Neither prime nor composite\n");
+return 0;
+}
+z=0;
+ep=n/2;
+y=2;
+while(y<=ep)
+{
+if(n%y==0) 
+{
+z=1;
+break;
+}
+y++;
+}
+if(z==0)
+{
+printf(" a prime number\n");
+}
+else
+{
+printf("Not a prime number\n");
+}
+return 0;
+}

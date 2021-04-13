@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+int y,e,f,g,n;
+printf("Enter the size of array:");
+scanf("%d",&n);
+for(y=0;y<n;y++)
+{
+printf("Enter a number:");
+scanf("%d",a[y]);
+}
+e=0;
+f=n-1;
+while(e<f)
+{
+g=a[e];
+a[e]=a[f];
+a[f]=g;
+e++;
+f--;
+}
+for(y=0;y<n;y++)
+{
+printf("%d\n",a[y]);
+}
+return 0;
+}

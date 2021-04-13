@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+int num,x,f,d;
+printf("Enter a number:");
+scanf("%d",&x);
+if(x<0) num=(-1)*x;
+else num=x;
+f=1;
+while(num>9)
+{
+f=f*10;
+num=num/10;
+}
+if(x<0) num=(-1)*x;
+else num=x;
+while(num>0)
+{
+d=num/f;
+printf("%d\n",d);
+num=num-(d*f);
+f=f/10;
+}
+return 0;
+}

@@ -1,0 +1,116 @@
+#include<string.h>
+#include<stdio.h>
+int FindAndReplace(char *p,char *q,char *r)
+{
+char *a,*b,*c,*j,*s,*t;
+int bLength=0,cLength=0;
+int k=0;
+b=q;
+while(*b!='\0')
+{ 
+b++;
+bLength++; 
+}
+c=r;
+while(*c!='\0') 
+{
+c++;
+cLength++;
+}
+j=p;
+while(1)
+{
+a=j;
+b=q;
+while(*a&&*a!=*b) a++;
+if(*a=='\0') break;
+j=a;
+while(*a&&*b&&*a==*b)
+{
+a++;
+b++;
+}
+if(*b=='\0')
+{
+k++;
+if(bLength==cLength)
+{
+a=j;
+c=r;
+while(*c)
+{
+*a=*c;
+a++;
+c++;
+}
+}
+if(bLength>cLength)
+{
+a=j;
+c=r;
+while(*c)
+{
+*a=*c;
+a++;
+c++;
+}
+t=a;
+s=t+(bLength-cLength);
+while(*s)
+{
+*t=*s;
+t++;
+s++;
+}
+*t='\0';
+}
+if(bLength<cLength)
+{
+t=a;
+while(*t) t++;
+s=t;
+t=t+(cLength-bLength);
+while(s>=a)
+{
+*t=*s;
+t--;
+s--;
+}
+a=j;
+c=r;
+while(*c)
+{
+*a=*c;
+a++;
+c++;
+}
+}
+j=a-1;
+}
+if(*a=='\0') break;
+}
+return k;
+}
+int main()
+{
+char a[44],b[22],c[22];
+printf("Enter a string :");
+fgets(a,44,stdin);
+fflush(stdin);
+a[strlen(a)-1]='\0';
+printf("Enter Find What :");
+fgets(b,22,stdin);
+fflush(stdin);
+b[strlen(b)-1]='\0';
+printf("Enter Replace with:");
+fgets(c,22,stdin);
+fflush(stdin);
+c[strlen(c)-1]='\0';
+int x=FindAndReplace(a,b,c);
+printf("%d time(s) Replcement Done\n",x);
+if(x>0)
+{
+printf("Now new string is %s\n",a);
+}
+return 0;
+}

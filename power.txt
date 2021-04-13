@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{
+int base,exp,j,result;
+printf("Enter the base :");
+scanf("%d",&base);
+printf("Enter the exponent:");
+scanf("%d",&exp);
+result=1;
+for(j=1;j<=exp;j++)
+{
+result=result*base;
+}
+printf("%d^%d =%d",base,exp,result);
+return 0;
+}
